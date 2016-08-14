@@ -138,10 +138,11 @@ cvs.onclick = function(e) {
 	var y = e.offsetY;
 	var i = Math.floor(x/30);
 	var j = Math.floor(y/30);
-	if(chessBoard[i][j] == 0){
-		oneStep(i,j,me);
-		chessBoard[i][j] = 1;
+	if(chessBoard[i][j]){
+	  return;
 	}
+	oneStep(i,j,me);
+	chessBoard[i][j] = 1;
 	for (var k = 0; k < count; k++) {
 		if (wins[i][j][k]) {//第k种赢法在i,j位置有子
 			myWin[k]++;
